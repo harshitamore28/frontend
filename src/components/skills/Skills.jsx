@@ -12,7 +12,7 @@ const Skills = () => {
             <div className="skills__container container grid">
                 <Frontend />
                 <Backend />
-                <ScrollDown scrollToSection="#qualification" />
+                {/* <ScrollDown scrollToSection="#qualification" /> */}
             </div>
         </section>
     )

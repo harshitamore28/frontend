@@ -121,7 +121,7 @@ const Qualification = () => {
                     </div>
                 </div>
             </div>
-            <ScrollDown scrollToSection="#portfolio" />
+            {/* <ScrollDown scrollToSection="#portfolio" /> */}
         </section>
     )
 }
