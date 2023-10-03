@@ -11,6 +11,8 @@ import ResultsSS from "../../assets/jci_screenshots/8_results.png";
 import EventsSS from "../../assets/jci_screenshots/6_events.png";
 import AnalysisSS from "../../assets/jci_screenshots/4_analysis.png";
 import FlyersSS from "../../assets/jci_screenshots/9_details.png";
+// import video from "../../assets/ecommerce_demo.mp4";
+// import video2 from "../../assets/business_demo.mp4"
 const WorkItems = ({ item }) => {
     const [toggleState, setToggleState] = useState(0);
     const toggleTab = (index) => {
@@ -19,13 +21,18 @@ const WorkItems = ({ item }) => {
     return (
         <>
             <div className="work__card" key={item.id}>
-                <img src={item.image} alt="" className='work__img' />
+                <img alt="" src={item.image} className='work__img' />
                 <h3 className="work__title">{item.title}</h3>
                 <span onClick={() => {
                     toggleTab(item.id)
                 }} className="work__button">
                     View Details <i className="bx bx-right-arrow-alt work__button-icon"></i>
                 </span>
+                {/* <span onClick={() => {
+                    toggleTab(item.id + "demo")
+                }} className="work__button">
+                    View Demo <i className="bx bx-right-arrow-alt work__button-icon"></i>
+                </span> */}
             </div>
             <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
@@ -41,9 +48,9 @@ const WorkItems = ({ item }) => {
                             <i className="uil uil-check-circle services__modal-icon"></i>
                             <p className="services__modal-info">View products fetched from REST API</p>
                         </li>
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <img src={RegisterSS} style={{ height: 500 }} />
-                            <img src={HomeSS} style={{ height: 500 }} />
+                        <div className="modal__screenshots">
+                            <img alt="" src={RegisterSS} className="modal__image" />
+                            <img alt="" src={HomeSS} className="modal__image" />
                         </div>
                         <li className="services__modal-service">
                             <i className="uil uil-check-circle services__modal-icon"></i>
@@ -53,9 +60,9 @@ const WorkItems = ({ item }) => {
                             <i className="uil uil-check-circle services__modal-icon"></i>
                             <p className="services__modal-info">Change the quantity of products</p>
                         </li>
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <img src={ProductSS} style={{ height: 500 }} />
-                            <img src={CartSS} style={{ height: 500 }} />
+                        <div className="modal__screenshots">
+                            <img alt="" src={ProductSS} className="modal__image" />
+                            <img alt="" src={CartSS} className="modal__image" />
                         </div>
                         <li className="services__modal-service">
                             <i className="uil uil-check-circle services__modal-icon"></i>
@@ -66,13 +73,24 @@ const WorkItems = ({ item }) => {
                             <i className="uil uil-check-circle services__modal-icon"></i>
                             <p className="services__modal-info">Place the order and get the data in backend</p>
                         </li>
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <img src={AddressSS} style={{ height: 500 }} />
-                            <img src={OrderSS} style={{ height: 500 }} />
+                        <div className="modal__screenshots">
+                            <img alt="" src={AddressSS} className="modal__image" />
+                            <img alt="" src={OrderSS} className="modal__image" />
                         </div>
                     </ul>
                 </div>
             </div>
+            {/* <div className={toggleState === "1demo" ? "services__modal active-modal" : "services__modal"}>
+                <div className="services__modal-content">
+                    <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
+                    <h3 className="services__modal-title">E-commerce Application</h3>
+                    <div style={{ textAlign: 'center', marginTop: 10 }}>
+                        <video width="250" height="400" controls >
+                            <source src={video} type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            </div> */}
             <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
@@ -87,9 +105,9 @@ const WorkItems = ({ item }) => {
                             <i className="uil uil-check-circle services__modal-icon"></i>
                             <p className="services__modal-info">Filter members based on membership or Business Category</p>
                         </li>
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <img src={NavigationSS} style={{ height: 500 }} />
-                            <img src={CategoriesSS} style={{ height: 500 }} />
+                        <div className="modal__screenshots">
+                            <img alt="" src={NavigationSS} className="modal__image" />
+                            <img alt="" src={CategoriesSS} className="modal__image" />
                         </div>
                         <li className="services__modal-service">
                             <i className="uil uil-check-circle services__modal-icon"></i>
@@ -99,9 +117,9 @@ const WorkItems = ({ item }) => {
                             <i className="uil uil-check-circle services__modal-icon"></i>
                             <p className="services__modal-info">Use of carousel to display Business Events in auto play mode</p>
                         </li>
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <img src={ResultsSS} style={{ height: 500 }} />
-                            <img src={EventsSS} style={{ height: 500 }} />
+                        <div>
+                            <img alt="" src={ResultsSS} className="modal__image" />
+                            <img alt="" src={EventsSS} className="modal__image" />
                         </div>
                         <li className="services__modal-service">
                             <i className="uil uil-check-circle services__modal-icon"></i>
@@ -111,13 +129,24 @@ const WorkItems = ({ item }) => {
                             <i className="uil uil-check-circle services__modal-icon"></i>
                             <p className="services__modal-info">Get contact details in the flyers and re-direct to WhatsApp or calling from the App</p>
                         </li>
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <img src={AnalysisSS} style={{ height: 500 }} />
-                            <img src={FlyersSS} style={{ height: 500 }} />
+                        <div className="modal__screenshots">
+                            <img alt="" src={AnalysisSS} className="modal__image" />
+                            <img alt="" src={FlyersSS} className="modal__image" />
                         </div>
                     </ul>
                 </div>
             </div>
+            {/* <div className={toggleState === "2demo" ? "services__modal active-modal" : "services__modal"}>
+                <div className="services__modal-content">
+                    <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
+                    <h3 className="services__modal-title">E-commerce Application</h3>
+                    <div style={{ textAlign: 'center', marginTop: 10 }}>
+                        <video width="250" height="400" controls >
+                            <source src={video2} type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            </div> */}
         </>
     )
 }

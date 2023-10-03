@@ -86,7 +86,7 @@
 
 .services__modal-content {
     height: 600px;
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 650px;
     position: relative;
     background-color: var(--container-color);
@@ -144,6 +144,14 @@
     visibility: visible;
 }
 
+.modal__screenshots {
+    display: flex;
+    justify-content: space-between
+}
+
+.modal__image {
+    height: 500px;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
@@ -188,6 +196,16 @@
     .services__modal-description {
         padding: 0;
     }
+
+    .modal__screenshots {
+        display: flex;
+        flex-direction: column;
+        gap: 50px
+    }
+
+    .modal__image {
+        height: 700px;
+    }
 }
 
 /* For small devices */
@@ -199,4 +217,9 @@
     .work__filters {
         column-gap: 0.25rem;
     }
+
+    /* .modal__screenshots {
+        display: 'flex';
+        flex-direction: 'column';
+    } */
 }
