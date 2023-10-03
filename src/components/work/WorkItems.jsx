@@ -11,8 +11,8 @@ import ResultsSS from "../../assets/jci_screenshots/8_results.png";
 import EventsSS from "../../assets/jci_screenshots/6_events.png";
 import AnalysisSS from "../../assets/jci_screenshots/4_analysis.png";
 import FlyersSS from "../../assets/jci_screenshots/9_details.png";
-// import video from "../../assets/ecommerce_demo.mp4";
-// import video2 from "../../assets/business_demo.mp4"
+import video from "../../assets/ecommerce_demo.mp4";
+import video2 from "../../assets/business_demo.mp4";
 const WorkItems = ({ item }) => {
     const [toggleState, setToggleState] = useState(0);
     const toggleTab = (index) => {
@@ -28,11 +28,11 @@ const WorkItems = ({ item }) => {
                 }} className="work__button">
                     View Details <i className="bx bx-right-arrow-alt work__button-icon"></i>
                 </span>
-                {/* <span onClick={() => {
+                <span onClick={() => {
                     toggleTab(item.id + "demo")
                 }} className="work__button">
                     View Demo <i className="bx bx-right-arrow-alt work__button-icon"></i>
-                </span> */}
+                </span>
             </div>
             <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
@@ -80,7 +80,7 @@ const WorkItems = ({ item }) => {
                     </ul>
                 </div>
             </div>
-            {/* <div className={toggleState === "1demo" ? "services__modal active-modal" : "services__modal"}>
+            <div className={toggleState === "1demo" ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
                     <h3 className="services__modal-title">E-commerce Application</h3>
@@ -90,7 +90,7 @@ const WorkItems = ({ item }) => {
                         </video>
                     </div>
                 </div>
-            </div> */}
+            </div>
             <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
@@ -136,7 +136,7 @@ const WorkItems = ({ item }) => {
                     </ul>
                 </div>
             </div>
-            {/* <div className={toggleState === "2demo" ? "services__modal active-modal" : "services__modal"}>
+            <div className={toggleState === "2demo" ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
                     <h3 className="services__modal-title">E-commerce Application</h3>
@@ -146,7 +146,7 @@ const WorkItems = ({ item }) => {
                         </video>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </>
     )
 }
