@@ -1,9 +1,9 @@
 import React from 'react';
 import "./about.css";
 import AboutImg from "../../assets/profile.jpeg";
-import CV from "../../assets/Harshita-Cv.pdf";
+import CV from "../../assets/Harshita_More_Resume.pdf";
 import Info from './Info';
-import ScrollDown from '../home/ScrollDown';
+// import ScrollDown from '../home/ScrollDown';
 
 
 const About = () => {
