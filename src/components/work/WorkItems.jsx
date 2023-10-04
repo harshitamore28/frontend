@@ -139,7 +139,7 @@ const WorkItems = ({ item }) => {
             <div className={toggleState === "2demo" ? "services__modal active-modal" : "services__modal"}>
                 <div className="services__modal-content">
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
-                    <h3 className="services__modal-title">E-commerce Application</h3>
+                    <h3 className="services__modal-title">Business Directory Application</h3>
                     <div style={{ textAlign: 'center', marginTop: 10 }}>
                         <video width="250" height="400" controls >
                             <source src={video2} type="video/mp4" />
