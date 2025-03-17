@@ -1,7 +1,7 @@
 import React from 'react';
 import "./about.css";
-import AboutImg from "../../assets/profile.jpeg";
-import CV from "../../assets/Harshita_More_Resume.pdf";
+import AboutImg from "../../assets/Harshita_profile.png";
+import CV from "../../assets/Resume_Harshita_More.pdf";
 import Info from './Info';
 // import ScrollDown from '../home/ScrollDown';
 
@@ -17,7 +17,7 @@ const About = () => {
                     <Info />
                     <p className="about__description">
                         Experienced Website and Mobile Application Developer.
-                        Delivered 20+ projects using HTML, CSS, Javascript, ReactJS, React Native etc.
+                        Delivered 25+ projects using HTML, CSS, Javascript, ReactJS, React Native etc.
                         Implemented complex functionalities using Javasricpt in Veeva iDetails for pharmaceutical companies globally.
                     </p>
                     <div className="about__cv__scrolldown">

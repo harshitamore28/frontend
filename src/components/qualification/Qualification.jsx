@@ -33,7 +33,7 @@ const Qualification = () => {
                                 <img src={Indegene} alt="indegene"></img>
                                 <h3 className="qualification__title">Indegene
                                 </h3>
-                                <span className="qualification__subtitle">Junior Software Engineer</span>
+                                <span className="qualification__subtitle">Software Engineer</span>
                                 <div className="qualification__calender">
                                     <i className="uil uil-calendar-alt"></i>
                                     {" "}Aug'2021 - Present
