@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./header.css";
 
 const Header = () => {
-    window.addEventListener("scroll", function () {
-        const header = document.querySelector(".header");
-        if (this.scrollY >= 80) header.classList.add("scroll-header");
-        else header.classList.remove("scroll-header");
-        if (this.scrollY >= 80 && this.scrollY < 560) setActiveNav('#home');
-        if (this.scrollY >= 560 && this.scrollY < 1000) setActiveNav('#about');
-        if (this.scrollY >= 1000 && this.scrollY < 1500) setActiveNav('#skills');
-        if (this.scrollY >= 1500 && this.scrollY < 2000) setActiveNav('#qualification');
-        if (this.scrollY >= 2000 && this.scrollY < 3000) setActiveNav('#portfolio');
-        if (this.scrollY >= 3000 && this.scrollY < 3500) setActiveNav('#contact');
-    })
     const [Toggle, showMenu] = useState(false);
     const [activeNav, setActiveNav] = useState("#home");
+
+    useEffect(() => {
+        const sections = ['home', 'about', 'skills', 'qualification', 'portfolio', 'contact'];
+
+        const handleScroll = () => {
+            const header = document.querySelector(".header");
+            if (window.scrollY >= 80) header.classList.add("scroll-header");
+            else header.classList.remove("scroll-header");
+
+            // Find which section is currently in view
+            const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = document.getElementById(sections[i]);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    if (scrollPosition >= sectionTop) {
+                        setActiveNav(`#${sections[i]}`);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Call once on mount
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     return (
         <header className="header">
             <nav className="nav container">
