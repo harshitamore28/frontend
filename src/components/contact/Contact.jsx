@@ -1,23 +1,41 @@
 import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 import "./contact.css"
 const Contact = () => {
     const form = useRef();
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    // const sendEmail = (e) => {
+    //     e.preventDefault();
 
-        emailjs.sendForm('service_gyy48kc', 'template_jg8l0kl', form.current, 'ZHcfOarFhTWVi4T3F')
-        e.target.reset()
-        alert("Mail sent to harshitamore28@gmail.com successfully")
-    };
+    //     emailjs.sendForm('service_gyy48kc', 'template_jg8l0kl', form.current, 'ZHcfOarFhTWVi4T3F')
+    //     e.target.reset()
+    //     alert("Mail sent to harshitamore28@gmail.com successfully")
+    // };
+    const sendEmail = async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form.current);
+    formData.append("access_key", "aa673540-25d9-46a1-8138-573c777e06fb");
+    
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    });
+    
+    if (response.ok) {
+        e.target.reset();
+        alert("Mail sent to harshitamore28@gmail.com successfully");
+    } else {
+        alert("Failed to send message. Please try again.");
+    }
+};
     return (
         <section className="contact section" id="contact">
-            <h2 className="section__title">Get in touch</h2>
-            <span className="section__subtitle">Contact Me</span>
+            <h2 className="section__title scroll-reveal">Get in touch</h2>
+            <span className="section__subtitle scroll-reveal stagger-1">Contact Me</span>
             <div className="contact__container container grid">
-                <div className="contact__content">
+                <div className="contact__content scroll-reveal-left stagger-2">
                     <h3 className="contact__title">Contact Details</h3>
                     <div className="contact__info">
                         <div className="contact__card">
@@ -49,7 +67,7 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <div className="contact__content">
+                <div className="contact__content scroll-reveal-right stagger-3">
                     <h3 className="contact__title">Send a message directly in my mailbox!</h3>
                     <form ref={form} onSubmit={sendEmail} className="contact__form">
                         <div className="contact__form-div">

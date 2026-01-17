@@ -7,11 +7,15 @@ import ScrollDown from '../home/ScrollDown';
 const Skills = () => {
     return (
         <section className="skills section" id="skills">
-            <h2 className="section__title">Skills</h2>
-            <span className="section__subtitle">My technical level</span>
+            <h2 className="section__title scroll-reveal">Skills</h2>
+            <span className="section__subtitle scroll-reveal stagger-1">My technical level</span>
             <div className="skills__container container grid">
-                <Frontend />
-                <Backend />
+                <div className="scroll-reveal-left stagger-2">
+                    <Frontend />
+                </div>
+                <div className="scroll-reveal-right stagger-3">
+                    <Backend />
+                </div>
                 {/* <ScrollDown scrollToSection="#qualification" /> */}
             </div>
         </section>

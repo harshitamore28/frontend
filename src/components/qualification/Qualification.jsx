@@ -13,9 +13,9 @@ const Qualification = () => {
     }
     return (
         <section className="qualification section" id="qualification">
-            <h2 className="section__title">Qualification</h2>
-            <span className="section__subtitle">My academic and career journey</span>
-            <div className="qualification__container container">
+            <h2 className="section__title scroll-reveal">Qualification</h2>
+            <span className="section__subtitle scroll-reveal stagger-1">My academic and career journey</span>
+            <div className="qualification__container container scroll-reveal stagger-2">
                 <div className="qualification__tabs">
                     <div className={toggleState === 1 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"} onClick={() => toggleTab(1)}>
                         <i className="uil uil-briefcase-alt qualification__icon"></i>

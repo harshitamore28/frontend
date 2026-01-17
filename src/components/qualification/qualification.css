@@ -5,30 +5,47 @@
 .qualification__tabs {
     display: flex;
     justify-content: center;
-    /* margin-bottom: var(--mb-2); */
-    margin-bottom: var(--mb-1);
+    margin-bottom: var(--mb-2);
+    gap: 1rem;
 }
 
 .qualification__button {
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
-    /* color: var(--title-color); */
-    color: grey;
+    color: var(--text-color);
     margin: 0 var(--mb-1);
     cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .qualification__button:hover {
-    color: var(--title-color-dark)
+    color: var(--primary-color);
+    background: var(--primary-color-light);
 }
 
 .qualification__icon {
     font-size: 1.8rem;
-    margin-right: var(--mb-0-25);
+    margin-right: var(--mb-0-5);
+    transition: transform 0.3s ease;
+}
+
+.qualification__button:hover .qualification__icon {
+    transform: scale(1.1);
 }
 
 .qualification__active {
-    color: var(--title-color-dark);
+    color: #fff;
+    background: var(--gradient-primary);
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.qualification__active:hover {
+    color: #fff;
+    background: var(--gradient-primary);
 }
 
 .qualification__sections {
@@ -43,6 +60,18 @@
 
 .qualification__content-active {
     display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .qualification__data {
@@ -53,34 +82,45 @@
 
 .qualification__title {
     font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
 }
 
 .qualification__subtitle {
     display: inline-block;
     font-size: var(--small-font-size);
-    /* margin-bottom: var(--mb-1) */
-    margin-bottom: var(--mb-0-25)
+    margin-bottom: var(--mb-0-25);
+    color: var(--text-color);
 }
 
 .qualification__calendar {
     font-size: var(--small-font-size);
+    color: var(--primary-color);
+    font-weight: var(--font-medium);
 }
 
 .qualification__rounder {
     display: inline-block;
     width: 13px;
     height: 13px;
-    background-color: var(--text-color);
+    background: var(--gradient-primary);
     border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--primary-color-light);
+    transition: all 0.3s ease;
+}
+
+.qualification__data:hover .qualification__rounder {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px var(--primary-color-light);
 }
 
 .qualification__line {
     display: block;
-    width: 1px;
+    width: 2px;
     height: 100%;
-    background-color: var(--text-color);
-    transform: translate(6px, -7px)
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
+    transform: translate(5px, -7px);
+    border-radius: 2px;
 }
 
 /*=============== BREAKPOINTS ===============*/

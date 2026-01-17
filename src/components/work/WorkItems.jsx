@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import RegisterSS from "../../assets/ecommerce_screenshots/1_register.png";
 import HomeSS from "../../assets/ecommerce_screenshots/4_home2.png";
 import ProductSS from "../../assets/ecommerce_screenshots/6_product2.png";
@@ -15,27 +15,83 @@ import video from "../../assets/ecommerce_demo.mp4";
 import video2 from "../../assets/business_demo.mp4";
 const WorkItems = ({ item }) => {
     const [toggleState, setToggleState] = useState(0);
+    const videoRef1 = useRef(null);
+    const videoRef2 = useRef(null);
+    const modalRef1 = useRef(null);
+    const modalRef2 = useRef(null);
+    const modalRef3 = useRef(null);
+    const modalRef4 = useRef(null);
+
     const toggleTab = (index) => {
+        if (index === 0) {
+            if (videoRef1.current) videoRef1.current.pause();
+            if (videoRef2.current) videoRef2.current.pause();
+        }
         setToggleState(index);
+
+        // Scroll modal to top when opening (after state update and transition)
+        if (index !== 0) {
+            setTimeout(() => {
+                const modalRefs = {
+                    5: modalRef1,
+                    "5demo": modalRef2,
+                    3: modalRef3,
+                    "3demo": modalRef4
+                };
+                const ref = modalRefs[index];
+                if (ref && ref.current) {
+                    ref.current.scrollTo({ top: 0, behavior: 'instant' });
+                }
+            }, 350);
+        }
+    }
+    const redirectToLink = (url) => {
+        window.open(url, '_blank');
     }
     return (
         <>
             <div className="work__card" key={item.id}>
                 <img alt="" src={item.image} className='work__img' />
                 <h3 className="work__title">{item.title}</h3>
+                {item.appStoreLink && (
+                    <span onClick={() => {
+                        redirectToLink(item.appStoreLink)
+                    }} className="work__button">
+                        App Store Link <i className="bx bx-right-arrow-alt work__button-icon"></i>
+                    </span>
+                )}
+                {item.playStoreLink && (
+                    <span onClick={() => {
+                        redirectToLink(item.playStoreLink)
+                    }} className="work__button">
+                        Play Store Link <i className="bx bx-right-arrow-alt work__button-icon"></i>
+                    </span>
+                )}
+                {item.websiteLink && (
+                    <span onClick={() => {
+                        redirectToLink(item.websiteLink)
+                    }} className="work__button">
+                        Website Link <i className="bx bx-right-arrow-alt work__button-icon"></i>
+                    </span>
+                )}
+                {(item.id === 3 || item.id === 5) && (
+                    <>
                 <span onClick={() => {
                     toggleTab(item.id)
                 }} className="work__button">
                     View Details <i className="bx bx-right-arrow-alt work__button-icon"></i>
                 </span>
+                
                 <span onClick={() => {
                     toggleTab(item.id + "demo")
                 }} className="work__button">
                     View Demo <i className="bx bx-right-arrow-alt work__button-icon"></i>
                 </span>
+                </>
+                )}
             </div>
-            <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
+            <div className={toggleState === 5 ? "services__modal active-modal" : "services__modal"}>
+                <div className="services__modal-content" ref={modalRef1}>
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
                     <h3 className="services__modal-title">E-commerce Application</h3>
                     <p className="services__modal-description">Created a practice e-commerce application using React Native as frontend and MongoDB as backend. Implemented functionalities such as :</p>
@@ -80,19 +136,19 @@ const WorkItems = ({ item }) => {
                     </ul>
                 </div>
             </div>
-            <div className={toggleState === "1demo" ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
+            <div className={toggleState === "5demo" ? "services__modal active-modal" : "services__modal"}>
+                <div className="services__modal-content" ref={modalRef2}>
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
                     <h3 className="services__modal-title">E-commerce Application</h3>
                     <div style={{ textAlign: 'center', marginTop: 10 }}>
-                        <video width="250" height="400" controls >
+                        <video ref={videoRef1} width="250" height="400" controls >
                             <source src={video} type="video/mp4" />
                         </video>
                     </div>
                 </div>
             </div>
-            <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
+            <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
+                <div className="services__modal-content" ref={modalRef3}>
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
                     <h3 className="services__modal-title">Business Directory Application</h3>
                     <p className="services__modal-description">Created a Business Directory Application for a social service organisation using React Native. Implemented functionalities such as :</p>
@@ -136,12 +192,12 @@ const WorkItems = ({ item }) => {
                     </ul>
                 </div>
             </div>
-            <div className={toggleState === "2demo" ? "services__modal active-modal" : "services__modal"}>
-                <div className="services__modal-content">
+            <div className={toggleState === "3demo" ? "services__modal active-modal" : "services__modal"}>
+                <div className="services__modal-content" ref={modalRef4}>
                     <i onClick={() => toggleTab(0)} className="uil uil-times services__modal-close"> </i>
                     <h3 className="services__modal-title">Business Directory Application</h3>
                     <div style={{ textAlign: 'center', marginTop: 10 }}>
-                        <video width="250" height="400" controls >
+                        <video ref={videoRef2} width="250" height="400" controls >
                             <source src={video2} type="video/mp4" />
                         </video>
                     </div>
