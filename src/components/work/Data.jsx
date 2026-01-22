@@ -9,7 +9,8 @@ export const projectsData = [
         id: 1,
         image: Work1,
         title: "Grandecines Application",
-        appStoreLink: "https://testflight.apple.com/join/hh3U6u2y"
+        appStoreLink: "https://testflight.apple.com/join/hh3U6u2y",
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.grandecines"
     },
     {
         id: 2,
